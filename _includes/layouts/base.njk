@@ -24,6 +24,9 @@
 {% include 'components/callout.css' %}
 {% include 'components/codetitle.css' %}
 {% include 'components/forms.css' %}
+{% include 'components/supporters.css' %}
+{% include 'components/search.css' %}
+{% include 'components/truncate.css' %}
 {% include 'components/details-oneway.css' %}
 {% endset %}
 		<style>{{ css | cssmin | safe }}</style>
@@ -35,6 +38,9 @@
 		<script>
 		{%- include "components/js-class.js" -%}
 		</script>
+{% if putTheJsInTheHead %}
+		<script src="/js/eleventy.js" type="module" async></script>
+{% endif %}
 	</head>
 	<body>
 
@@ -45,5 +51,8 @@
 		{%- include "components/details-force-state.js" -%}
 		</script>
 		<script src="/js/instant.page.js" async></script>
+{% if not putTheJsInTheHead %}
+		<script src="/js/eleventy.js" type="module" async></script>
+{% endif %}
 	</body>
 </html>
